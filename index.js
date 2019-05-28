@@ -8,6 +8,10 @@ if(cluster.isMaster) {
     //cause index.js to be exexuted again 
     // in child mode 
     cluster.fork()
+    cluster.fork()
+    cluster.fork()
+    cluster.fork()
+    cluster.fork()
 } else {
     // Im a child I am going to act like a server
     //and do nothing else 
@@ -17,6 +21,10 @@ if(cluster.isMaster) {
     
         res.send('Hi there!')
     
+    })
+
+    app.get('/fast', (req, res) => {
+        res.send('this was fast')
     })
     
     app.listen(3000)   
